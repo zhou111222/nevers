@@ -1,0 +1,6 @@
+npm-debug.log
+.svn
+.idea
+.DS_Store
+.vscode
+package-lock.json
