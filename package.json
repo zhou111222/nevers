@@ -1,0 +1,46 @@
+{
+    "name": "neves",
+    "version": "1.0.0",
+    "description": "寺库前端自动化构建工具",
+    "main": "index.js",
+    "bin": {
+        "neves": "bin/neves"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "dependencies": {
+        "colors": "^1.4.0",
+        "commander": "^4.0.1",
+        "inquirer": "^7.0.0",
+        "shelljs": "^0.8.3",
+        "single-line-log": "^1.1.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhou111222/neves.git"
+    },
+    "keywords": [
+        "neves",
+        "build tools",
+        "构建工具",
+        "寺库",
+        "cli",
+        "脚手架",
+        "webpack",
+        "node"
+    ],
+    "author": {
+        "name": "neves",
+        "email": "zhoupengfei@secoo.com"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zhou111222/neves/issues"
+    },
+    "homepage": "https://github.com/zhou111222/neves#readme"
+}
