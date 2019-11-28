@@ -1,13 +1,10 @@
 {
     "name": "neves",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "寺库前端自动化构建工具",
     "main": "index.js",
     "bin": {
         "neves": "bin/neves"
-    },
-    "directories": {
-        "lib": "lib"
     },
     "preferGlobal": true,
     "readmeFilename": "README.md",
