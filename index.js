@@ -53,7 +53,7 @@ function create(projectName) {
     })
 }
 
-function neves() {
+module.exports = function neves() {
     program.version(require('./package.json').version);
     program.command('init [projectName]').description('创建项目')
         .action((projectName) => {
@@ -61,4 +61,3 @@ function neves() {
         });
     program.parse(process.argv);
 }
-neves()
