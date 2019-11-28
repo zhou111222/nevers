@@ -1,6 +1,6 @@
 {
     "name": "neves",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "寺库前端自动化构建工具",
     "main": "index.js",
     "bin": {
@@ -9,6 +9,8 @@
     "directories": {
         "lib": "lib"
     },
+    "preferGlobal": true,
+    "readmeFilename": "README.md",
     "dependencies": {
         "colors": "^1.4.0",
         "commander": "^4.0.1",
