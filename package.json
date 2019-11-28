@@ -1,6 +1,6 @@
 {
     "name": "neves",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "寺库前端自动化构建工具",
     "main": "index.js",
     "bin": {

@@ -26,7 +26,8 @@ function create(projectName) {
         name: "password"
     }]).then((answers) => {
         if (answers.password == 'secoo') {
-            const remote = 'https://github.com/zhou111222/secoo-h5.git';
+            console.log('11100');
+            const remote = 'https://github.com/zhou111222/dot.git';
             const curName = 'secoo-h5';
             const tarName = projectName;
             shell.exec(`
@@ -36,9 +37,12 @@ function create(projectName) {
                 npm i
             `, (error, stdout, stderr) => {
                 if (error) {
+                    console.log('11111');
                     console.error(`exec error: ${error}`);
                     return
                 } else {
+                    console.log('111222');
+                    console.log('111222', path.join(__dirname, '/user-config.json'));
                     let url = path.join(__dirname, '/user-config.json');
                     fs.writeFile(url, JSON.stringify(answers, "", "\t"), 'utf-8', (err) => {
                         if (err) {
