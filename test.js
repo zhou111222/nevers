@@ -66,5 +66,4 @@ function downFile(url, fileName) {
         var stream = fs.createWriteStream(path.join(__dirname, fileName));
     });
 }
-exports.downFile = downFile;
-exports.Progress = Progress;
+downFile(1, aa)

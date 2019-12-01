@@ -27,9 +27,10 @@ function create(projectName) {
     }]).then((answers) => {
         if (answers.password == 'secoo') {
             console.log('11100');
-            const remote = 'https://github.com/zhou111222/dot.git';
+            const cdnUrl = 'https://mstatic.secooimg.com/activity2019/js/activity2019.min.js';
             const curName = 'secoo-h5';
             const tarName = projectName;
+
             shell.exec(`
                 git clone ${remote} --depth=1
                 mv ${curName} ${tarName}
@@ -37,12 +38,9 @@ function create(projectName) {
                 npm i
             `, (error, stdout, stderr) => {
                 if (error) {
-                    console.log('11111');
                     console.error(`exec error: ${error}`);
                     return
                 } else {
-                    console.log('111222');
-                    console.log('111222', path.join(__dirname, '/user-config.json'));
                     let url = path.join(__dirname, '/user-config.json');
                     fs.writeFile(url, JSON.stringify(answers, "", "\t"), 'utf-8', (err) => {
                         if (err) {
