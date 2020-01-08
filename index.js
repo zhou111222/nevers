@@ -1,12 +1,39 @@
 'use strict';
 const inquirer = require('inquirer');
-const shell = require('shelljs');
 const program = require('commander');
 const fs = require('fs');
 const path = require('path');
 const Progress = require('./lib/untils.js').Progress;
 const downFile = require('./lib/untils.js').downFile;
 const exitFolder = require('./lib/untils').exitFolder;
+const ora = require('ora');
+const colors = require('colors');
+const shell = require('shelljs');
+
+
+function downLoadFile(cdnUrl, projectName, answers, folderName) {
+    const spinner = ora({
+        text: '正在下载项目模板...'.yellow,
+        color: 'yellow'
+    }).start();
+
+    downFile(cdnUrl, projectName).then(function() {
+        fs.writeFile(path.join(process.cwd(), projectName, folderName, 'user-config.json'), JSON.stringify(answers, "", "\t"), 'utf-8', (err) => {
+            if (err) {
+                spinner.text = `配置文件写入失败,失败原因：${err}`.red;
+                spinner.fail();
+            } else {
+                spinner.text = '项目模板初始化完成...'.brightGreen;
+                spinner.succeed();
+                fs.unlinkSync(path.join(process.cwd(), `./${projectName}.zip`));
+            }
+        });
+    }).catch((err) => {
+        spinner.text = `模板下载失败,失败原因：：${err}`.red;
+        spinner.fail();
+        process.exit(1);
+    });
+}
 
 function create(projectName) {
     inquirer.prompt([{
@@ -23,31 +50,27 @@ function create(projectName) {
         name: 'url',
         message: '请输入页面路径：'
     }, {
-        type: "password", // 密码为密文输入
-        message: "请输入密码：",
-        name: "password"
+        type: "list", // 开发环境
+        name: "latype",
+        message: "请选择开发语言：",
+        choices: [
+            "ES6",
+            "ES6+VUE",
+        ],
+        default: 0
     }]).then((answers) => {
-        if (answers.password == 'secoo') {
-            const cdnUrl = 'https://nodejs.org/dist/v8.9.4/node-v8.9.4-win-x64.zip';
-            downFile(cdnUrl, projectName).then(function() {
-                fs.writeFile(path.join(__dirname, projectName, 'user-config.json'), JSON.stringify(answers, "", "\t"), 'utf-8', (err) => {
-                    if (err) {
-                        console.log('项目初始化失败！');
-                    } else {
-                        Progress("项目正在初始化...".brightYellow, "项目初始化完成".brightGreen, 100);
-                    }
-                });
-            }).catch((err) => {
-                console.error(err);
-                process.exit(1);
-            });
+        if (answers.latype == 'ES6') {
+            downLoadFile('https://mstatic.secooimg.com/cli/zhoupengfei/secoo_app_h5.zip', projectName, answers, 'secoo_app_h5');
+        } else {
+            downLoadFile('https://mstatic.secooimg.com/cli/zhoupengfei/secoo_app_vue.zip', projectName, answers, 'secoo_app_vue');
         }
     })
 }
 
 module.exports = function neves() {
     program.version(require('./package.json').version);
-    program.command('init [projectName]').description('使用neves创建项目')
+    //添加命令名称
+    program.command('init [projectName]').description('正在使用neves创建项目')
         .action((projectName) => {
             if (!exitFolder(`./${projectName}`)) {
                 create(projectName);
