@@ -1,11 +1,11 @@
-![neves.png](https://raw.githubusercontent.com/zhou111222/images/master/neves.png)
+![neves.png](https://github.com/zhou111222/images/blob/master/neves.png)
 # 项目开发说明
 
 ## 项目开发文档
 
 [Neves脚手架开发项目文档](https://github.com/zhou111222/secoo_app_vue)
 
-![文档.png](https://raw.githubusercontent.com/zhou111222/images/master/%E6%96%87%E6%A1%A3.png)
+![文档.png](https://github.com/zhou111222/images/blob/master/%E6%96%87%E6%A1%A3.png)
 
 ## Neves
 一个基于 Node、express、Vue.js、webpack 的深度定制化寺库前端工程化统一方案，帮助你快速构建H5页面应用。
