@@ -1,5 +1,11 @@
 # 项目开发说明
 
+## 项目开发文档
+
+[Neves脚手架开发项目文档](https://github.com/zhou111222/secoo_app_vue)
+
+![文档.png](https://upload-images.jianshu.io/upload_images/18616547-d4a90301c23b4e32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## Neves
 一个基于 Node、express、Vue.js、webpack 的深度定制化寺库前端工程化统一方案，帮助你快速构建H5页面应用。
 
